@@ -1,4 +1,12 @@
 # Ticker Terminal
+<p align="center">
+  <a href="https://github.com/adivx/ticker-terminal/actions"><img src="https://img.shields.io/github/actions/workflow/status/adivx/ticker-terminal/ci.yml?branch=main&label=CI&logo=github" /></a>
+  <img src="https://img.shields.io/github/license/adivx/ticker-terminal" />
+  <img src="https://img.shields.io/github/last-commit/adivx/ticker-terminal" />
+  <img src="https://img.shields.io/github/repo-size/adivx/ticker-terminal" />
+</p>
+
+
 
 A Bloomberg-style financial terminal — web app. Type function codes into the
 command bar and get quotes, price graphs, fundamentals, news, comparables,
