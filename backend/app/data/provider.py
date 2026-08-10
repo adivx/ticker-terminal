@@ -55,7 +55,7 @@ class DataProvider:
         return data
 
     def news(self, query: str, limit: int = 15) -> list[dict]:
-        key = f"news:{query.lower()}"
+        key = f"news:{query.lower()}:{limit}"
         cached = self.cache.get(key)
         if cached is not None:
             return cached
