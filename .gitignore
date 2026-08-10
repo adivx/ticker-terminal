@@ -4,7 +4,7 @@ __pycache__/
 node_modules/
 dist/
 *.db
-data/
+/data/
 .DS_Store
 .vscode/
 .idea/
