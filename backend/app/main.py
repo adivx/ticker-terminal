@@ -104,6 +104,10 @@ def run_function(
         raise HTTPException(400, str(exc))
     try:
         screen = dispatch(provider, parsed, range)
+    except CommandError as exc:
+        # Unhandled functions (e.g. `MON <GO>`) are user errors, not server
+        # faults — return 400 like parse failures, never a 500 traceback.
+        raise HTTPException(400, str(exc))
     except ValueError as exc:
         raise HTTPException(502, str(exc))
     except Exception as exc:  # defensive: never leak stack traces
