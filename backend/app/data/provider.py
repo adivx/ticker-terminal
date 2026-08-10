@@ -100,7 +100,13 @@ class DataProvider:
             except Exception:
                 continue
         quotes.sort(key=lambda q: q["changePercent"], reverse=True)
-        data = {"topGainers": quotes[:6], "topLosers": list(reversed(quotes[-6:]))}
+        gainers = quotes[:6]
+        losers = quotes[-6:]
+        if len(quotes) < 12:
+            # Fewer than a full screen of movers: the top-6 and bottom-6 slices
+            # overlap, so the same symbol used to appear on both sides.
+            losers = [q for q in losers if q not in gainers]
+        data = {"topGainers": gainers, "topLosers": list(reversed(losers))}
         self.cache.set(key, data, 30)
         return data
 
