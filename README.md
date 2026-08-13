@@ -125,3 +125,4 @@ explains the move from the real price data + headlines.
 - [ ] Terminal look-alike keyboarding (function-key shortcuts, typeahead)
 - [ ] Docker Compose for one-command startup
 - [ ] Backtest a strategy on `GP` history and plot it on the chart
+<-/.claude daily update -->
