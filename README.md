@@ -126,3 +126,4 @@ explains the move from the real price data + headlines.
 - [ ] Docker Compose for one-command startup
 - [ ] Backtest a strategy on `GP` history and plot it on the chart
 <-/.claude daily update -->
+<-/.claude Updated Aug 14 -->
