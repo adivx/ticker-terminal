@@ -1,4 +1,8 @@
-"""Technical indicators computed over OHLCV history."""
+"""Technical indicators computed over OHLCV history.
+
+All functions return NaN-padded Series aligned to input length, so callers can
+index them directly against the original records.
+"""
 from __future__ import annotations
 
 import numpy as np
@@ -44,8 +48,14 @@ def _round(v) -> float | None:
 
 
 def compute_all(records: list[dict]) -> dict:
-    """Returns indicator series aligned to `records` (nulls preserved) plus
-    a snapshot of latest values for the readout bar.
+    """Compute all indicator series and a latest-value readout.
+
+    Args:
+        records: List of OHLCV dicts with at least a "close" key.
+
+    Returns:
+        Dict with indicator series (lists of float|None, same length as
+        `records`) and a "readout" dict of latest scalar values.
     """
     closes = pd.Series([r["close"] for r in records], dtype=float)
     ma20 = sma(closes, 20)

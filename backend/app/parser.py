@@ -50,6 +50,7 @@ COUNTRY_SUFFIX = {
 }
 
 # Recognised index names -> Yahoo symbol
+# Source: Yahoo Finance convention (^ prefix for indices)
 INDEX_MAP = {
     "NIFTY": "^NSEI",
     "NIFTY50": "^NSEI",

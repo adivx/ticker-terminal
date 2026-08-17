@@ -60,4 +60,6 @@ def dispatch(provider, p, range_key: str = "1y") -> dict:
         return {"type": "movers", **provider.movers()}
     if p.function == "HELP":
         return {"type": "help", "reference": HELP_REF, "syntax": SYNTAX, "note": NOTE}
+
+    # Fall-through: unknown function (kept for safety; parser validates first)
     raise CommandError(f"Unhandled function {p.function}")

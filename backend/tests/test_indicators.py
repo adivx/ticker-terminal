@@ -87,3 +87,11 @@ def test_compute_all_aligns_series_to_records():
         "RSI(14)", "MACD", "MACD Signal", "MACD Hist", "SMA(20)", "SMA(50)",
     }
     assert out["readout"]["SMA(20)"] is not None
+
+
+def test_compute_all_insufficient_data_for_long_windows():
+    """With < 50 points, long windows remain entirely None."""
+    records = [{"close": 100.0 + i} for i in range(30)]
+    out = compute_all(records)
+    assert out["sma50"] == [None] * 30
+    assert out["readout"]["SMA(50)"] is None
